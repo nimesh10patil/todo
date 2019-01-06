@@ -1,4 +1,5 @@
 import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +8,14 @@ import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
- @Input() public isloggedin;
+  constructor(private _userservice:UserService ) { }
+ public isloggedin;
   ngOnInit() {
+
+    this._userservice.isloggedin()
+    .subscribe(data => { this.isloggedin=data;
+    console.log(data);
+  console.log(typeof(data))})
   }
   public showbutton=false
 

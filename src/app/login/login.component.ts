@@ -1,4 +1,6 @@
 import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
+import { Router } from "@angular/router";
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +9,19 @@ import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _userservice:UserService,private router: Router) { }
  @Input() public isloggedin;
   ngOnInit() {
   }
   public showbutton=false
+
+  logout(){
+    this._userservice.userlogout()
+    .subscribe(data =>{ console.log("hiii");
+      this.isloggedin=false
+      this.router.navigate(['']);
+    })
+  }
 
 
   toggle(){

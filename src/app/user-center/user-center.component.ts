@@ -30,6 +30,7 @@ export class UserCenterComponent implements OnInit {
   logout(){
     this._userservice.userlogout()
     .subscribe(data =>{ console.log(data);
+      this.router.navigate(['']);
     })
   }
 
@@ -48,6 +49,8 @@ export class UserCenterComponent implements OnInit {
     .subscribe(data => {
     if(typeof(data)==="object"){
       //no error
+      console.log("nimesh")
+      console.log(data)
       this.hideusercenter=true
       this.isloggedin=true
       this.loginerror=false

@@ -1,13 +1,20 @@
-<div *ngIf="!isloggedin">
-  <button (click)="toggle()">click to login</button>
+ 
 
-  <div *ngIf="showbutton">
-    <form  #form="ngForm" (ngSubmit)="submitted(form.value)">
-      username : <input type="text" name="username" ngModel><br>
-      password : <input type="password"name="password" ngModel><br>
-    
-    <button type="submit">login</button>
-    </form>
+  <div *ngIf="!isloggedin">
+      <button (click)="toggle()">click to login</button>
+
+      <div *ngIf="showbutton">
+        <form  #form="ngForm" (ngSubmit)="submitted(form.value)">
+          username : <input type="text" name="username" ngModel><br>
+          password : <input type="password"name="password" ngModel><br>
+        
+        <button type="submit">login</button>
+        </form>
+      </div>
   </div>
-</div>
+
+
+  <div *ngIf="isloggedin">
+      <button (click)="logout()" >log out</button>
+  </div>
 
