@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +8,7 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-
+ @Input() public isloggedin;
   ngOnInit() {
   }
   public showbutton=false

@@ -13,10 +13,24 @@ export class UserCenterComponent implements OnInit {
   constructor(private _userservice:UserService,private router: Router) { }
   public registeredmessage
   public hideusercenter
-
+  public isloggedin;
   ngOnInit() {
     this.registeredmessage=false
     this.hideusercenter=false
+    this._userservice.isloggedin()
+    .subscribe(data => { this.isloggedin=data;
+    console.log(data);
+  console.log(typeof(data))})
+    
+
+  }
+
+  //logout
+
+  logout(){
+    this._userservice.userlogout()
+    .subscribe(data =>{ console.log(data);
+    })
   }
 
 
@@ -27,7 +41,7 @@ export class UserCenterComponent implements OnInit {
     .subscribe(data => {console.log(data);
       this.registeredmessage=true})
 }
-
+  public loginerror=false
   login(userform){
     console.log("inside userform submitter")
     this._userservice.loginuser(userform)
@@ -35,10 +49,14 @@ export class UserCenterComponent implements OnInit {
     if(typeof(data)==="object"){
       //no error
       this.hideusercenter=true
+      this.isloggedin=true
+      this.loginerror=false
+
       this.router.navigate(['tasks']);
       console.log("no error")
   
       }else{
+        this.loginerror=true
           console.log("error")}
       })
 }

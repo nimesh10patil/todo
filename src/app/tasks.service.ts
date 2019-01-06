@@ -14,6 +14,12 @@ export class TasksService {
   public puturl="task/edit/"
   public deleteurl="task/delete/"
 
+  public isloggedinurl="user/isloggedin"
+
+  isloggedin():Observable<Boolean>{
+    return this._http.get<Boolean>(this.isloggedinurl)
+  }
+
   addtask(task):Observable<Task>{
     return this._http.post<Task>(this.addurl,task)
   }

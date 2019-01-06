@@ -9,11 +9,15 @@ import { TasksService } from '../tasks.service';
 export class TaskCenterComponent implements OnInit {
 
   constructor(private _taskservice:TasksService) { }
-
-  public tasks
+  public isloggedin;
+  public tasks;
   ngOnInit() {
     this._taskservice.gettasks()
     .subscribe(data => this.tasks=data)
+    this._taskservice.isloggedin()
+    .subscribe(data => { this.isloggedin=data;
+    console.log(data);
+  console.log(typeof(data))})
 
     }
 

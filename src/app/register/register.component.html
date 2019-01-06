@@ -1,9 +1,11 @@
-<button (click)="toggle()">register here</button>
-<div *ngIf="showbutton">
-<form #form="ngForm" (ngSubmit)="submitted(form.value)">
- username: <input type="text" name="username" ngModel> <br>
- email: <input type="text" name="email" ngModel> <br>
- password: <input type="text" name="password" ngModel> <br>
-<button type="submit">register</button>
-</form>
+<div *ngIf="!isloggedin">
+    <button (click)="toggle()">register here</button>
+    <div *ngIf="showbutton">
+    <form #form="ngForm" (ngSubmit)="submitted(form.value)">
+     username: <input type="text" name="username" ngModel> <br>
+     email: <input type="text" name="email" ngModel> <br>
+     password: <input type="password" name="password" ngModel> <br>
+    <button type="submit">register</button>
+    </form>
+    </div>
 </div>

@@ -1,13 +1,20 @@
-<button (click)="toggle()">click to add new task</button>
-<div *ngIf="showbutton">
-<form #form="ngForm" (ngSubmit)="submitted(form.value)">
- title: <input type="text" name="title" ngModel> <br>
- description: <input type="text" name="description" ngModel> <br>
- priority: <input type="text" name="priority" ngModel> <br>
-<button type="submit">add</button>
-</form>
+
+
+<div *ngIf="isloggedin">
+
+        <button (click)="toggle()">click to add new task</button>
+        <div *ngIf="showbutton">
+        <form #form="ngForm" (ngSubmit)="submitted(form.value)">
+         title: <input type="text" name="title" ngModel> <br>
+         description: <input type="text" name="description" ngModel> <br>
+         priority: <input type="text" name="priority" ngModel> <br>
+        <button type="submit">add</button>
+        </form>
+        </div>
+    <app-tasklist 
+    (deletetaskevent)="delete($event)"
+    (updatetaskevent)="update($event)"
+    [tasks]="tasks"></app-tasklist>
+
 </div>
-<app-tasklist 
-(deletetaskevent)="delete($event)"
-(updatetaskevent)="update($event)"
-[tasks]="tasks"></app-tasklist>
+

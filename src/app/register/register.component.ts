@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +8,7 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 export class RegisterComponent implements OnInit {
 
   constructor() { }
-
+ @Input() public isloggedin;
   ngOnInit() {
   }
   public showbutton=false
@@ -27,6 +27,8 @@ export class RegisterComponent implements OnInit {
   //submiting form to usercenter
   @Output() public registerevent=new EventEmitter()
   submitted(user){
+    this.showbutton=false
+
     this.registerevent.emit(user)
 
   }

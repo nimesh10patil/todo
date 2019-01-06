@@ -81,16 +81,16 @@ passport.use(new LocalStrategy(
 
   router.get('/logout', function(req, res){
     req.logout();
-    res.send("logout");
+    res.send(true);
   });
 
 
   router.get('/isloggedin',function(req,res){
       if(req.user){
-        res.send(req.user)
+        res.send(true)
 
       }else{
-          res.send("not logged in")
+          res.send(false)
       }
   })
 

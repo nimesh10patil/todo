@@ -13,6 +13,16 @@ export class UserService {
   public registerurl="/user/register"
   public loginurl="user/login"
   public logout="user/login"
+  public isloggedinurl="user/isloggedin"
+  public logouturl="user/logout"
+
+  userlogout(){
+    return this._http.get(this.logouturl)
+  }
+
+  isloggedin():Observable<Boolean>{
+    return this._http.get<Boolean>(this.isloggedinurl)
+  }
 
   registeruser(user){
     return this._http.post(this.registerurl,user)

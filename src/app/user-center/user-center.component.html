@@ -1,7 +1,18 @@
-<app-login (loginevent)="login($event)"></app-login>
 
-<app-register (registerevent)="register($event)"></app-register>
+<div *ngIf="!isloggedin">
+    <app-login [isloggedin]="isloggedin" (loginevent)="login($event)"></app-login>
+
+    <app-register [isloggedin]="isloggedin" (registerevent)="register($event)"></app-register>
+    
+</div>
+<p *ngIf="loginerror">
+username or password not matched
+  </p>
 
 <p *ngIf="registeredmessage">
   registered successfully
 </p>
+
+<div *ngIf="isloggedin">
+    <button (click)="logout()" >log out</button>
+</div>
