@@ -1,7 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-4">
+      <app-login [isloggedin]="isloggedin" (loginevent)="login($event)"></app-login>
+    </div>
+    <div class="col-xs-offset-2 col-xs-4">
+      <app-register (registerevent)="register($event)"></app-register>
+    </div>
+  </div>
+</div>
 
 
-    <app-login [isloggedin]="isloggedin" (loginevent)="login($event)"></app-login>
-    <app-register  (registerevent)="register($event)"></app-register>
+
+  <!-- <div class="row">
+    <div class="col-xs-6">
+      <app-register  (registerevent)="register($event)"></app-register>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <app-register  (registerevent)="register($event)"></app-register>
+    </div>
+  </div>
+</div> -->
+
   
 <p *ngIf="loginerror">
 username or password not matched
@@ -11,3 +35,20 @@ username or password not matched
   registered successfully
 </p>
 
+
+
+ 
+
+<!--
+
+     <app-login [isloggedin]="isloggedin" (loginevent)="login($event)"></app-login>
+    <app-register  (registerevent)="register($event)"></app-register>
+  
+<p *ngIf="loginerror">
+username or password not matched
+  </p>
+
+<p *ngIf="registeredmessage">
+  registered successfully
+</p>
+-->

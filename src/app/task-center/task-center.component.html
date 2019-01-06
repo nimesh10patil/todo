@@ -5,10 +5,13 @@
         <button (click)="toggle()">click to add new task</button>
         <div *ngIf="showbutton">
         <form #form="ngForm" (ngSubmit)="submitted(form.value)">
-         title: <input type="text" name="title" ngModel> <br>
-         description: <input type="text" name="description" ngModel> <br>
-         priority: <input type="text" name="priority" ngModel> <br>
-        <button type="submit">add</button>
+            <label for="">Title</label>
+            <input class="form-control" type="text" name="title" ngModel>
+            <label for="">Description</label>
+            <input class="form-control" type="text" name="description" ngModel>
+            <label for="">Prioity</label>
+            <input class="form-control" type="text" name="priority" ngModel>
+            <button type="submit">add</button>
         </form>
         </div>
     <app-tasklist 

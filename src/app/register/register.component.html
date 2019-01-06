@@ -1,5 +1,36 @@
- 
-    <div *ngIf="!isloggedin">
+<div class="row">
+        <div class="col-xs-12">
+                        <div *ngIf="!isloggedin">
+                                        <button class="btn btn-danger" (click)="toggle()">register here</button>
+                                        <div *ngIf="showbutton">
+                                        <form #form="ngForm" (ngSubmit)="submitted(form.value)">
+                                        <label for="">Username</label>
+                                        <input class="form-control" type="text" name="username" ngModel>
+                                        <label for="">Email</label>
+                                        <input class="form-control" type="email" name="email" ngModel>
+                                        <label for="">Password</label>
+                                        <input class="form-control" type="password" name="password" ngModel>
+                                        <button class="btn btn-success" type="submit">register</button>
+                                        </form>
+                                        </div>
+                                
+                                
+                                </div>
+        </div>
+</div>
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   <!--
+           
+   <div *ngIf="!isloggedin">
             <button (click)="toggle()">register here</button>
             <div *ngIf="showbutton">
             <form #form="ngForm" (ngSubmit)="submitted(form.value)">
@@ -12,3 +43,4 @@
         
     
     </div>
+   -->

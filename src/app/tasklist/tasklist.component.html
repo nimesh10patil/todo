@@ -1,10 +1,33 @@
-tasks
+
+your tasks will appear below
+
+
 <div *ngFor="let t of tasks">
+    <form >
+        <div >
+            <input type="input" name="title" required placeholder="title"
+            [(ngModel)]="t.title">
+            
+            <input type="input"  rows="5" name="description" [(ngModel)]="t.description">
+            <input type="input"  rows="5" name="priority" [(ngModel)]="t.priority">
+
+              <button  type="button" (click)="update(t._id)" >edit</button>
+              <button  type="button" (click)="delete(t._id)">delete</button>
+
+            </div> 
+    </form>
+</div>
+
+
+<!--
+
+
+    <div *ngFor="let t of tasks">
     <form >
         <div  class="form-group">
             <input type="input" class="form-control" name="title" required placeholder="title"
             [(ngModel)]="t.title">
-
+            
             <input type="input" class="form-control" rows="5" name="description" [(ngModel)]="t.description">
             <input type="input" class="form-control" rows="5" name="priority" [(ngModel)]="t.priority">
 
@@ -14,3 +37,4 @@ tasks
             </div> 
     </form>
 </div>
+-->

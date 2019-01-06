@@ -1,4 +1,6 @@
- 
+<!--
+
+  
 
   <div *ngIf="!isloggedin">
       <button (click)="toggle()">click to login</button>
@@ -18,3 +20,31 @@
       <button (click)="logout()" >log out</button>
   </div>
 
+-->
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div *ngIf="!isloggedin">
+          <button class="btn btn-primary" (click)="toggle()">click to login</button>
+        
+          <div *ngIf="showbutton">
+            <form  #form="ngForm" (ngSubmit)="submitted(form.value)">
+              <label for="">Username</label>
+              <input class="form-control" type="text" name="username" ngModel><br>
+              <label for="">Password</label>
+              <input class="form-control" type="password"name="password" ngModel><br>
+            
+            <button class="btn btn-success" type="submit">login</button>
+            </form>
+          </div>
+        </div>
+        
+        
+        <div *ngIf="isloggedin">
+            <button (click)="logout()" >log out</button>
+        </div>
+    </div>
+  </div>
+  
+  
