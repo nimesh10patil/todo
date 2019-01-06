@@ -40,17 +40,22 @@ submitted(task){
   let tasklist=this.tasks
   this._taskservice.addtask(task)
   .subscribe(data=>{
-    
-    for(let i=0;i<tasklist.length;i++){
-      if(tasklist[i].priority>=data.priority){
-       for(let j=tasklist.length;j>i;j--){
-         this.tasks[j]=this.tasks[j-1]
-       }
-       this.tasks[i]=data;
-       this.showbutton=false
-       break
+    if(tasklist.length==0){
+      this.tasks.push(data)
+    }else{
+      for(let i=0;i<tasklist.length;i++){
+        if(tasklist[i].priority>=data.priority){
+         for(let j=tasklist.length;j>i;j--){
+           this.tasks[j]=this.tasks[j-1]
+         }
+         this.tasks[i]=data;
+         this.showbutton=false
+         break
+        }
       }
+
     }
+
   })
 }
 
